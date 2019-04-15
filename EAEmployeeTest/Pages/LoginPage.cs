@@ -4,7 +4,9 @@ using System.Text;
 using System.Threading.Tasks;
 using EAAutoFramework.Base;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.PageObjects;
+using EAAutoFramework.Extensions;
 
 namespace EAEmployeeTest.Pages
 {
@@ -15,20 +17,11 @@ namespace EAEmployeeTest.Pages
         {
         }
 
-        [FindsBy(How = How.LinkText, Using = "Log in")]
-        IWebElement lnkLogin { get; set; }
-
-        [FindsBy(How = How.LinkText, Using = "Employee List")]
-        IWebElement lnkEmployeeList { get; set; }
-
-        [FindsBy(How = How.Id, Using = "UserName")]
-        IWebElement txtUserName { get; set; }
-
-        [FindsBy(How = How.Id, Using = "Password")]
-        IWebElement txtPassword { get; set; }
-
-        [FindsBy(How = How.CssSelector, Using = "input.btn")]
-        IWebElement btnLogin { get; set; }
+        public IWebElement lnkLogin => _driver.FindElement(By.Id("loginLink"));
+        public IWebElement lnkEmployeeList => _driver.FindElement(By.LinkText("Employee List"));
+        public IWebElement txtUserName => _driver.FindElement(By.Name("UserName"));
+        public IWebElement txtPassword => _driver.FindElement(By.Id("Password"));
+        public IWebElement btnLogin => _driver.FindElement(By.CssSelector("input.btn"));
 
         public void Login(string username, string password)
         {
@@ -44,8 +37,14 @@ namespace EAEmployeeTest.Pages
 
         public EmployeePage ClickEmployeeList()
         {
+            DriverContext.Driver.WaitForPageLoaded();
             lnkEmployeeList.Click();
             return GetInstance<EmployeePage>();
+        }
+
+        internal void CheckIfLoginExists()
+        {
+            txtUserName.AssertElementPresent();
         }
     }
 }

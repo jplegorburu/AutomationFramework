@@ -43,6 +43,7 @@ namespace EAAutoFramework.Helpers
         /// <param name="fileName">File name.</param>
         private static DataTable ExcelToDataTable(string fileName)
         {
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             // Open File and returns a Stream
             using (var stream = File.Open(fileName, FileMode.Open, FileAccess.Read))
             {
