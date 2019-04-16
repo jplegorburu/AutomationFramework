@@ -1,5 +1,7 @@
 ﻿using EAAutoFramework.Base;
 using System;
+using System.Data.SqlClient;
+
 namespace EAAutoFramework.Config
 {
     public class Settings
@@ -12,5 +14,7 @@ namespace EAAutoFramework.Config
         public static string IsLog { get; set; }
         public static string IsReporting { get; set; }
         public static string LogPath { get; set; }
+        public static SqlConnection ApplicationCon { get; set; }
+        public static string AppConnectionString { get; set; }
     }
 }

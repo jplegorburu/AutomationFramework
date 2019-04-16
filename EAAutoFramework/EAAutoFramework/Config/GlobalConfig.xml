@@ -8,12 +8,14 @@
     <TestType>SmokeTest</TestType>
     <!--Possible flag Y, N-->
     <IsLog>Y</IsLog>
-    <LogPath>C:\\EAAutoLogs</LogPath>
+    <LogPath>C:\Users\juan.legorburu\Documents\AutomationFramework\EAEmployeeTest\Logs\</LogPath>
     <BuildName>DemoBuild</BuildName>
     <!--Possible flag Y, N-->
     <IsReport>N</IsReport>
     <UserName>EAutoTeam</UserName>
     <!--Possible flag Selenium, SpecFlow-->
     <Technology>Selenium</Technology>
+    <!--Possible flag Selenium, SpecFlow-->
+    <ApplicationDB>Data Source=Server;Initial Catalog=Employee;IntegratedS Security=True</ApplicationDB>
   </RunSettings>
 </EAAutoFramework>

@@ -5,9 +5,9 @@ using OpenQA.Selenium.Support.PageObjects;
 
 namespace EAEmployeeTest.Pages
 {
-    public class EmployeePage : BasePage
+    internal class EmployeeListPage : BasePage
     {
-        public EmployeePage()
+        public EmployeeListPage()
         {
         }
 

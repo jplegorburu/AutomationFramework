@@ -55,5 +55,10 @@ namespace EAAutoFramework.Extensions
             Actions action = new Actions(DriverContext.Driver);
             action.MoveToElement(element).Perform();
         }
+
+        public static string GetLinkText(this IWebElement element)
+        {
+            return element.Text;
+        }
     }
 }
